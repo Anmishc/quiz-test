@@ -35,7 +35,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: './'
+          cache-dependency-path: 'quiz-test'
       - name: Install dependencies
         run: yarn install
       - name: Build
@@ -48,5 +48,6 @@ jobs:
           # Upload dist repository
           path: './dist'
       - name: Deploy to GitHub Pages
-        run: yarn run preview
+        id: deployment
+        uses: actions/deploy-pages@v1
 
