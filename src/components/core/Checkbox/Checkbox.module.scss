@@ -1,0 +1,30 @@
+.checkbox {
+  input[type='checkbox'] {
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    content: none;
+    width: 32px;
+    margin: 0;
+  }
+
+  input[type='checkbox']::before {
+    content: '\2713';
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+    color: transparent;
+    background: #6D4376;
+    display: block;
+    width: 23px;
+    height: 23px;
+    border: 1px solid #E4229B;
+    border-radius: 8px;
+    transition: color 0.1s ease-in-out;
+  }
+
+  input[type='checkbox']:checked::before {
+    color: #ffffff;
+    background: #E4229B;
+  }
+}

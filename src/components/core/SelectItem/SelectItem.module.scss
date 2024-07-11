@@ -1,0 +1,47 @@
+.selectTtem {
+  background: #36173D;
+  color: #ffffff;
+  display: flex;
+  font-family: Nunito Sans, sans-serif;
+  font-weight: 600;
+  border: 1px solid transparent;
+
+  &:hover {
+    cursor: pointer;
+    background: #492752;
+    border: 1px solid #D0006E;
+  }
+}
+
+.singleSelect {
+  font-size: 17px;
+  padding: 18px 20px;
+  gap: 0px;
+  border-radius: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 7.5px 0;
+}
+
+.singleSelectImage {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.002em;
+  border-radius: 12px;
+  width: 101px;
+  height: 144px;
+
+  span {
+    width: 52px;
+    height: 52px;
+    font-size: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+}
+

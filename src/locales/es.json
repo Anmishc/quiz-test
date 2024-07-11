@@ -1,0 +1,85 @@
+{
+  "questions": {
+    "question1": {
+      "title": "¿Cuál es tu idioma preferido?",
+      "subTitle": "Elige tu idioma",
+      "type": "single-select",
+      "options": {
+        "option1": { "text": "Inglés" },
+        "option2": { "text": "Francés" },
+        "option3": { "text": "Alemán" },
+        "option4": { "text": "Español" }
+      }
+    },
+    "question2": {
+      "title": "¿Con qué género te identificas?",
+      "subTitle": "Por favor, comparte cómo te identificas",
+      "type": "single-select-image",
+      "options": {
+        "option1": { "text": "Mujer" },
+        "option2": { "text": "Hombre" },
+        "option3": { "text": "Otro" }
+      }
+    },
+    "question3": {
+      "title": "¿Cuál es tu edad?",
+      "type": "single-select",
+      "options": {
+        "option1": { "text": "18-29 años" },
+        "option2": { "text": "30-39 años" },
+        "option3": { "text": "40-49 años" },
+        "option4": { "text": "50+" }
+      }
+    },
+    "question4": {
+      "title": "¿Qué es lo que más odias en un libro?",
+      "type": "multiple-select",
+      "options": {
+        "option1": { "text": "Falta de lógica" },
+        "option2": { "text": "Velocidad lenta" },
+        "option3": { "text": "Falta de humor" },
+        "option4": { "text": "Final demasiado genérico" }
+      }
+    },
+    "question5": {
+      "title": "¿Cuáles son tus temas favoritos?",
+      "subTitle": "Elige hasta 3 temas que te gusten",
+      "type": "bubble",
+      "options": {
+        "option1": { "text": "Hombre lobo" },
+        "option2": { "text": "Acción" },
+        "option3": { "text": "Obsesión real" },
+        "option4": { "text": "Romance" },
+        "option5": { "text": "Joven adulto" },
+        "option6": { "text": "Chico malo" },
+        "option7": { "text": "Multimillonario" }
+      }
+    }
+  },
+  "global": {
+    "button": {
+      "next": "Siguiente",
+      "retake": "Repetir el quiz"
+    }
+  },
+  "emailPage": {
+    "input": {
+      "placeholder": "Tu correo electrónico",
+      "error": "Por favor, introduce una dirección de correo electrónico válida"
+    },
+    "title": "Correo electrónico",
+    "subTitle": "Ingresa tu correo electrónico para acceder completo",
+    "info1": "Al continuar, acepto",
+    "info2": "y",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfUse": "Términos de uso"
+  },
+  "loader": {
+    "text": "Buscando colecciones para ti..."
+  },
+  "thankYouPage": {
+    "title": "Gracias",
+    "subTitle": "por apoyarnos y pasar el quiz",
+    "download": "Descargar mis respuestas"
+  }
+}

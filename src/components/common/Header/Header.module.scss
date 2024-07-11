@@ -1,0 +1,37 @@
+.header {
+  margin-top: 20px;
+  .count {
+    font-family: Albert Sans, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    margin-bottom: 10px;
+
+    .backArrow {
+      position: absolute;
+      left: 25px;
+      border: none;
+      background-color: transparent;
+      color: #ffffff;
+      padding: 0;
+      &:hover {
+        svg {
+
+        }
+      }
+    }
+
+    .currentCount {
+      font-weight: 800;
+      color: #E4229C;
+    }
+
+    .totalCount {
+      font-weight: 800;
+      color: #ffffff;
+    }
+  }
+}

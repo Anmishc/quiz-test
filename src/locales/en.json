@@ -1,0 +1,85 @@
+{
+  "questions": {
+    "question1": {
+      "title": "What is your preferred language?",
+      "subTitle": "Choose language",
+      "type": "single-select",
+      "options": {
+        "option1": { "text": "English" },
+        "option2": { "text": "French" },
+        "option3": { "text": "German" },
+        "option4": { "text": "Spanish" }
+      }
+    },
+    "question2": {
+      "title": "What gender do you identify with?",
+      "subTitle": "Please share how do you identify yourself",
+      "type": "single-select-image",
+      "options": {
+        "option1": { "text": "Female" },
+        "option2": { "text": "Male" },
+        "option3": { "text": "Other" }
+      }
+    },
+    "question3": {
+      "title": "What is your age?",
+      "type": "single-select",
+      "options": {
+        "option1": { "text": "18-29 years" },
+        "option2": { "text": "30-39 years" },
+        "option3": { "text": "40-49 years" },
+        "option4": { "text": "50+" }
+      }
+    },
+    "question4": {
+      "title": "What do you hate the most in a book?",
+      "type": "multiple-select",
+      "options": {
+        "option1": { "text": "Lack of logic" },
+        "option2": { "text": "A slow speed" },
+        "option3": { "text": "Lack of humor" },
+        "option4": { "text": "Way too generic ending" }
+      }
+    },
+    "question5": {
+      "title": "What are your favorite topics?",
+      "subTitle": "Choose up to 3 topics you like",
+      "type": "bubble",
+      "options": {
+        "option1": { "text": "Werewolf" },
+        "option2": { "text": "Action" },
+        "option3": { "text": "Royal Obsession" },
+        "option4": { "text": "Romance" },
+        "option5": { "text": "Young Adult" },
+        "option6": { "text": "Bad Boy" },
+        "option7": { "text": "Billionaire" }
+      }
+    }
+  },
+  "global": {
+    "button": {
+      "next": "Next",
+      "retake": "Retake Quiz"
+    }
+  },
+  "emailPage": {
+    "input": {
+      "placeholder": "Your email",
+      "error": "Please enter a valid email address"
+    },
+    "title": "Email",
+    "subTitle": "Enter your email to get full access",
+    "info1": "By continuing I agree with",
+    "info2": "and",
+    "privacyPolicy": "Privacy policy",
+    "termsOfUse": "Terms of use"
+  },
+  "loader": {
+    "text": "Finding collections for you..."
+  },
+  "thankYouPage": {
+    "title": "Thank you",
+    "subTitle": "for supporting us and passing quiz",
+    "download": "Download my answers"
+  }
+}

@@ -1,0 +1,98 @@
+.emailPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 25px;
+  .formBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .title {
+      font-family: Albert Sans, sans-serif;;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 38px;
+      letter-spacing: -0.02em;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .subTitle {
+      font-family: Albert Sans, sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 22px;
+      text-align: center;
+      color: #C4C8CC;
+    }
+
+    .form {
+      width: 100%;
+      max-width: 335px;
+      .inputBlock {
+        position: relative;
+        margin: 40px 0;
+      }
+      input {
+        background: #36173D;
+        border: 1px solid #36173D;
+        width: 100%;
+        padding: 21px 20px 21px 20px;
+        gap: 4px;
+        border-radius: 16px;
+        color: #ffffff;
+        max-width: -webkit-fill-available;
+
+        &:focus {
+          outline: none;
+          background: #492752;
+          border: 1px solid #D0006E;
+        }
+
+        &::placeholder {
+          color: #C4C8CC80;
+        }
+
+        &.invalid {
+          background: #492752;
+          border: 1px solid #D0006E;
+        }
+
+        p {
+          width: 100%;
+        }
+      }
+
+      .error {
+        position: relative;
+        color: #D0006E;
+        font-size: 12px;
+        &.hide {
+          opacity: 0;
+        }
+      }
+
+      .info {
+        color: #B6B8C3;
+        font-family: Albert Sans, sans-serif;;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 18px;
+        text-align: center;
+        padding: 0 20px;
+        a {
+          color: #E4229C;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .footer {
+    flex-shrink: 0;
+    margin-bottom: 20px;
+  }
+}

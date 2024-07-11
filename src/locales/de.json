@@ -1,0 +1,84 @@
+{
+  "questions": {
+    "question1": {
+      "title": "Was ist Ihre bevorzugte Sprache?",
+      "subTitle": "Wählen Sie eine Sprache",
+      "type": "single-select",
+      "options": {
+        "option1": { "text": "Englisch" },
+        "option2": { "text": "Französisch" },
+        "option3": { "text": "Deutsch" },
+        "option4": { "text": "Spanisch" }
+      }
+    },
+    "question2": {
+      "title": "Mit welchem Geschlecht identifizieren Sie sich?",
+      "subTitle": "Bitte teilen Sie mit, wie Sie sich identifizieren",
+      "type": "single-select-image",
+      "options": {
+        "option1": { "text": "Weiblich" },
+        "option2": { "text": "Männlich" },
+        "option3": { "text": "Andere" }
+      }
+    },
+    "question3": {
+      "title": "Wie alt sind Sie?",
+      "type": "single-select",
+      "options": {
+        "option1": { "text": "18-29 Jahre" },
+        "option2": { "text": "30-39 Jahre" },
+        "option3": { "text": "40-49 Jahre" },
+        "option4": { "text": "50+" }
+      }
+    },
+    "question4": {
+      "title": "Was stört Sie am meisten an einem Buch?",
+      "type": "multiple-select",
+      "options": {
+        "option1": { "text": "Mangel an Logik" },
+        "option2": { "text": "Langsame Geschwindigkeit" },
+        "option3": { "text": "Mangel an Humor" },
+        "option4": { "text": "Zu generisches Ende" }
+      }
+    },
+    "question5": {
+      "title": "Was sind Ihre Lieblingsthemen?",
+      "subTitle": "Wählen Sie bis zu 3 Themen aus, die Ihnen gefallen",
+      "type": "bubble",
+      "options": {
+        "option1": { "text": "Werwolf" },
+        "option2": { "text": "Aktion" },
+        "option3": { "text": "Königliche Obsession" },
+        "option4": { "text": "Romantik" },
+        "option5": { "text": "Jugendlich" },
+        "option6": { "text": "Schlechter Junge" },
+        "option7": { "text": "Milliardär" }
+      }
+    }
+  },
+  "global": {
+    "button": {
+      "next": "Weiter"
+    }
+  },
+  "emailPage": {
+    "input": {
+      "placeholder": "Deine E-Mail",
+      "error": "Bitte geben Sie eine gültige E-Mail Adresse ein"
+    },
+    "title": "E-Mail:",
+    "subTitle": "Geben Sie Ihre E-Mail-Adresse ein, um vollen Zugang zu erhalten",
+    "info1": "Durch die weitere Nutzung stimme ich zu",
+    "info2": "und",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsOfUse": "Nutzungsbedingungen"
+  },
+  "loader": {
+    "text": "Sammlungen für Sie finden..."
+  },
+  "thankYouPage": {
+    "title": "Danke",
+    "subTitle": "für Ihre Unterstützung und das Bestehen des Quiz",
+    "download": "Meine Antworten herunterladen"
+  }
+}

@@ -1,0 +1,22 @@
+.quizPage {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 335px;
+  width: 100vw;
+  padding: 0 25px;
+
+  .questionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+  }
+
+  .footer {
+    flex-shrink: 0;
+    position: relative;
+    margin-bottom: 20px;
+  }
+}

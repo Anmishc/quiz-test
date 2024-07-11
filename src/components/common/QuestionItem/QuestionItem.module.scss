@@ -1,0 +1,39 @@
+.question {
+  h2 {
+    font-family: Nunito Sans, sans-serif;;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 34px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .subTitle {
+    color: #C4C8CC;
+    text-align: center;
+    font-family: Nunito Sans, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 15px;
+
+  }
+
+  .col {
+    display: flex;
+    overflow-x: auto;
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .active {
+    border: 1px solid #D0006E;
+    background: #E4229B33;
+  }
+}

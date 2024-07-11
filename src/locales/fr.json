@@ -1,0 +1,85 @@
+{
+  "questions": {
+    "question1": {
+      "title": "Quelle est votre langue préférée ?",
+      "subTitle": "Choisissez la langue",
+      "type": "single-select",
+      "options": {
+        "option1": { "text": "Anglais" },
+        "option2": { "text": "Français" },
+        "option3": { "text": "Allemand" },
+        "option4": { "text": "Espagnol" }
+      }
+    },
+    "question2": {
+      "title": "Avec quel genre vous identifiez-vous ?",
+      "subTitle": "Veuillez indiquer comment vous vous identifiez",
+      "type": "single-select-image",
+      "options": {
+        "option1": { "text": "Femme" },
+        "option2": { "text": "Homme" },
+        "option3": { "text": "Autre" }
+      }
+    },
+    "question3": {
+      "title": "Quel est votre âge ?",
+      "type": "single-select",
+      "options": {
+        "option1": { "text": "18-29 ans" },
+        "option2": { "text": "30-39 ans" },
+        "option3": { "text": "40-49 ans" },
+        "option4": { "text": "50+" }
+      }
+    },
+    "question4": {
+      "title": "Qu'est-ce que vous détestez le plus dans un livre ?",
+      "type": "multiple-select",
+      "options": {
+        "option1": { "text": "Manque de logique" },
+        "option2": { "text": "Lenteur" },
+        "option3": { "text": "Manque d'humour" },
+        "option4": { "text": "Fin trop générique" }
+      }
+    },
+    "question5": {
+      "title": "Quels sont vos sujets préférés ?",
+      "subTitle": "Choisissez jusqu'à 3 sujets que vous aimez",
+      "type": "bubble",
+      "options": {
+        "option1": { "text": "Loup-garou" },
+        "option2": { "text": "Action" },
+        "option3": { "text": "Obsession royale" },
+        "option4": { "text": "Romance" },
+        "option5": { "text": "Jeune adulte" },
+        "option6": { "text": "Bad Boy" },
+        "option7": { "text": "Milliardaire" }
+      }
+    }
+  },
+  "global": {
+    "button": {
+      "next": "Suivant",
+      "retake": "Recommencer le quiz"
+    }
+  },
+  "emailPage": {
+    "input": {
+      "placeholder": "Votre adresse email",
+      "error": "Veuillez entrer une adresse email valide"
+    },
+    "title": "Email",
+    "subTitle": "Entrez votre email pour accéder complet",
+    "info1": "En continuant, j'accepte",
+    "info2": "et",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfUse": "Conditions d'utilisation"
+  },
+  "loader": {
+    "text": "Recherche de collections pour vous..."
+  },
+  "thankYouPage": {
+    "title": "Merci",
+    "subTitle": "pour votre soutien et avoir réussi le quiz",
+    "download": "Télécharger mes réponses"
+  }
+}
