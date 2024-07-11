@@ -7,12 +7,12 @@ import styles from './QuestionItem.module.scss';
 import { SelectItem } from '../../core/SelectItem';
 import MultipleSelect from '../../core/MultipleSelect';
 import { languageMap } from '../../../constants';
-import {Answer, QuizArray, Question} from '../../../types/quiz';
+import { Answer, Quiz, Question } from '../../../types/quiz';
 
 interface QuestingProps {
   answer: Answer;
   question: Question;
-  onAnswerSelect: (q:Question, a:QuizArray | QuizArray[]) => void;
+  onAnswerSelect: (q:Question, a:Quiz | Quiz[]) => void;
 }
 
 function QuestionItem({ answer, question, onAnswerSelect }: QuestingProps) {
@@ -21,7 +21,11 @@ function QuestionItem({ answer, question, onAnswerSelect }: QuestingProps) {
     i18n.changeLanguage(lng);
   };
 
-  const handleAnswerClick = useCallback((questionItem: Question, answerItem: QuizArray | QuizArray[]) => {
+  const handleAnswerClick = useCallback((questionItem: Question, answerItem: Quiz[]) => {
+    onAnswerSelect(questionItem, answerItem);
+  }, [onAnswerSelect]);
+
+  const handleAnswerSingleClick= useCallback((questionItem: Question, answerItem: Quiz) => {
     if(questionItem.id === 1 && !Array.isArray(answerItem)) {
       const languageKey = answerItem?.text as keyof typeof languageMap;
       changeLanguage(languageMap[languageKey]);
@@ -34,20 +38,20 @@ function QuestionItem({ answer, question, onAnswerSelect }: QuestingProps) {
       return (
         <MultipleSelect
           questionId={id}
-          onClick={(e: QuizArray[]) => handleAnswerClick(question, e)}
+          onClick={(e: Quiz[]) => handleAnswerClick(question, e)}
           type={type}
           options={options}
         />
       );
     }
     return (
-      options.map((option: QuizArray) => (
+      options.map((option: Quiz) => (
         <SelectItem
           className={classNames(
-            { [styles.active]: answer && answer?.item?.some((i:QuizArray) => i.id === option.id) },
+            { [styles.active]: answer && answer?.item?.some((i:Quiz) => i.id === option.id) },
           )}
           key={option.id}
-          onClick={() => handleAnswerClick(question, option)}
+          onClick={() => handleAnswerSingleClick(question, option)}
           type={type}
         >
           {option?.img && <span>{option?.img}</span>}
@@ -55,7 +59,7 @@ function QuestionItem({ answer, question, onAnswerSelect }: QuestingProps) {
         </SelectItem>
       ))
     );
-  }, [type, options, id, handleAnswerClick, question, answer]);
+  }, [type, options, id, handleAnswerClick, question, answer, handleAnswerSingleClick]);
 
   return (
     <div className={styles.question}>

@@ -4,12 +4,12 @@ import { Trans } from 'react-i18next';
 import styles from './MultipleSelect.module.scss';
 import { Checkbox } from '../Checkbox';
 import { useQuiz } from '../../../contexts/QuizContext';
-import { QuizArray} from '../../../types/quiz';
+import { Quiz} from '../../../types/quiz';
 
 interface MultipleSelectProps {
   questionId: number;
-  onClick: (f: QuizArray[]) => void;
-  options: QuizArray[];
+  onClick: (f: Quiz[]) => void;
+  options: Quiz[];
   type: string;
 }
 
@@ -17,16 +17,16 @@ function MultipleSelect({
   questionId, onClick, options, type,
 }:MultipleSelectProps) {
   const { answers, currentQuestionIndex } = useQuiz();
-  const [selectedOptions, setSelectedOptions] = useState<QuizArray[]>([]);
+  const [selectedOptions, setSelectedOptions] = useState<Quiz[]>([]);
 
   const classes = classNames(styles.multipleSelect, {
     [styles.multiple]: type === 'multiple-select',
     [styles.bubble]: type === 'bubble',
   });
 
-  const toggleOption = useCallback((option: QuizArray) => {
+  const toggleOption = useCallback((option: Quiz) => {
     if (selectedOptions.some((selectedOption) => selectedOption.id === option.id)) {
-      const updated:QuizArray[] = selectedOptions.filter((selectedOption) => selectedOption.id !== option.id);
+      const updated:Quiz[] = selectedOptions.filter((selectedOption) => selectedOption.id !== option.id);
       setSelectedOptions(updated);
       onClick(updated);
     } else {

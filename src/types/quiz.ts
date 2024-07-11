@@ -1,4 +1,4 @@
-export interface QuizArray {
+export interface Quiz {
   id: number,
   img?: string,
   text: string
@@ -9,12 +9,12 @@ export interface Question {
   title: string;
   subTitle?: string;
   type: string;
-  options: QuizArray[];
+  options: Quiz[];
 }
 
 export interface Answer {
   id: number;
   title: string;
   type: string;
-  item: QuizArray[];
+  item: Quiz[];
 }

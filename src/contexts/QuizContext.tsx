@@ -6,7 +6,7 @@ import i18n from 'i18next';
 import { getQuestions } from '../services/api/question.service';
 import { getAnswers, setAnswers } from '../services/api/answer.service';
 import useLocalStorage from '../hooks/useLocalStorage';
-import { Question, Answer } from '../types/quiz';
+import {Question, Answer, Quiz} from '../types/quiz';
 import { StorageKey } from '../constants';
 
 interface QuizContextProps {
@@ -16,7 +16,7 @@ interface QuizContextProps {
   answers: Answer[];
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  handleAnswerSelection: (question: Question, selectedAnswer: Answer[]) => Promise<void>;
+  handleAnswerSelection: (question: Question, selectedAnswer: Quiz[] | Quiz) => Promise<void>;
   getNextQuestionIndex: () => number;
 }
 
@@ -40,12 +40,14 @@ export function QuizProvider({ children }: { children: ReactNode}) {
   const [loading, setLoading] = useState(false);
   const language = localStorage.getItem(StorageKey.Language) || 'en';
 
-  const generateAnswers = useCallback((type: string, answer: Answer[]) => {
-    if (['bubble', 'multiple-select'].includes(type)) return [...answer];
+  const generateAnswers = useCallback((type: string, answer: Quiz[] | Quiz) => {
+    if (['bubble', 'multiple-select'].includes(type))  {
+      if(Array.isArray(answer)) return [...answer];
+    }
     return [answer];
   }, []);
 
-  const handleAnswerSelection = async (item:Question, selectedAnswer:Answer[]) => {
+  const handleAnswerSelection = async (item:Question, selectedAnswer:Quiz[] | Quiz) => {
     const answers = await getAnswers();
     if (Array.isArray(answers)) {
       const newAnswers = [...answers];
