@@ -6,7 +6,7 @@ import i18n from 'i18next';
 import { getQuestions } from '../services/api/question.service';
 import { getAnswers, setAnswers } from '../services/api/answer.service';
 import useLocalStorage from '../hooks/useLocalStorage';
-import { Question, Answer, QuizArray } from '../types/quiz';
+import { Question, Answer } from '../types/quiz';
 import { StorageKey } from '../constants';
 
 interface QuizContextProps {
@@ -16,7 +16,7 @@ interface QuizContextProps {
   answers: Answer[];
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  handleAnswerSelection: (question: Question, selectedAnswer: QuizArray | any) => void;
+  handleAnswerSelection: (question: Question, selectedAnswer: Answer[]) => Promise<void>;
   getNextQuestionIndex: () => number;
 }
 
@@ -27,7 +27,7 @@ export const QuizContext = createContext<QuizContextProps>({
   answers: [],
   loading: false,
   setLoading: () => null,
-  handleAnswerSelection: () => null,
+  handleAnswerSelection: () => Promise.resolve(),
   getNextQuestionIndex: () => 0,
 });
 export function QuizProvider({ children }: { children: ReactNode}) {

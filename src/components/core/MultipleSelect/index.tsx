@@ -8,7 +8,7 @@ import { QuizArray} from '../../../types/quiz';
 
 interface MultipleSelectProps {
   questionId: number;
-  onClick: (f: QuizArray | any) => void;
+  onClick: (f: QuizArray[]) => void;
   options: QuizArray[];
   type: string;
 }
