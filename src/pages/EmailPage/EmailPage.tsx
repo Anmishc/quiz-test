@@ -6,9 +6,14 @@ import useDebounce from '../../hooks/useDebounce.tsx';
 import { Button } from '../../components/core/Button';
 
 import styles from './EmailPage.module.scss';
+import {StorageKey} from "../../constants";
+import {localStorageService} from "../../services/common/localStorage.service.ts";
+import {questionsData} from "../../data/questions.ts";
 
 function EmailPage() {
   const navigate = useNavigate();
+  const answers = localStorageService.getJSON(StorageKey.QuizAnswers) || [];
+  const allAnswersSubmitted = answers.length === questionsData.length;
   const [email, setEmail] = useState('');
   const { t } = useTranslation();
   const debouncedEmail = useDebounce({ value: email, delay: 500 });
@@ -26,7 +31,7 @@ function EmailPage() {
 
   const handleSubmit = () => {
     if (validateEmail(email)) {
-      localStorage.setItem('quizUserEmail', email);
+      localStorage.setItem(StorageKey.QuizUserEmail, email);
       navigate('/thank-you');
     }
   };
@@ -42,6 +47,12 @@ function EmailPage() {
       }
     }
   }, [debouncedEmail]);
+
+  useEffect(() => {
+    if (!allAnswersSubmitted) {
+      navigate('/');
+    }
+  },[allAnswersSubmitted, navigate])
 
   return (
     <div className={styles.emailPage}>

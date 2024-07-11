@@ -78,7 +78,7 @@
       .info {
         color: #B6B8C3;
         font-family: Albert Sans, sans-serif;;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 500;
         line-height: 18px;
         text-align: center;
@@ -86,6 +86,11 @@
         a {
           color: #E4229C;
           cursor: pointer;
+
+          &:hover {
+            cursor: pointer;
+            color: #91095c;
+          }
         }
       }
     }

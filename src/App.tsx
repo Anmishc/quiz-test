@@ -13,6 +13,7 @@ import { StorageKey } from './constants';
 
 function App() {
   localStorageService.setJSON(StorageKey.QuizQuestions, questionsData);
+
   return (
     <I18nextProvider i18n={i18n}>
       <Router>

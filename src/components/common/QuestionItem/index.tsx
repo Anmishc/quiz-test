@@ -1,34 +1,31 @@
 import classNames from 'classnames';
 import { Trans } from 'react-i18next';
-// import i18n from 'i18next';
+import i18n from 'i18next';
 import { useCallback, useMemo } from 'react';
 
 import styles from './QuestionItem.module.scss';
 import { SelectItem } from '../../core/SelectItem';
 import MultipleSelect from '../../core/MultipleSelect';
-// import { languageMap, StorageKey } from '../../../constants';
-import { Answer, Question } from '../../../types/quiz';
+import { languageMap } from '../../../constants';
+import {Answer, QuizArray, Question} from '../../../types/quiz';
 
 interface QuestingProps {
-  answer: Answer[];
+  answer: Answer[] | any;
   question: Question;
-  onAnswerSelect: (q:Question, a:Answer[]) => void;
+  onAnswerSelect: (q:Question, a:QuizArray) => void;
 }
 
 function QuestionItem({ answer, question, onAnswerSelect }: QuestingProps) {
-  const {
-    id, title, subTitle, type, options,
-  } = question;
-  // const changeLanguage = (lng: string) => {
-  //   i18n.changeLanguage(lng);
-  // };
+  const { id, title, subTitle, type, options} = question;
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
-  const handleAnswerClick = useCallback((questionItem: Question, answerItem: Answer[]) => {
-    // if (questionItem.id === 1 && answerItem?.[0]?.text in languageMap) {
-    //   const selectedLanguage = answerItem[0].text as keyof typeof languageMap;
-    //   localStorage.setItem(StorageKey.Language, languageMap[selectedLanguage]);
-    //   changeLanguage(languageMap[selectedLanguage]);
-    // }
+  const handleAnswerClick = useCallback((questionItem: Question, answerItem: QuizArray) => {
+    if(questionItem.id === 1) {
+      const languageKey = answerItem?.text as keyof typeof languageMap;
+      changeLanguage(languageMap[languageKey]);
+    }
     onAnswerSelect(questionItem, answerItem);
   }, [onAnswerSelect]);
 
@@ -37,14 +34,14 @@ function QuestionItem({ answer, question, onAnswerSelect }: QuestingProps) {
       return (
         <MultipleSelect
           questionId={id}
-          onClick={(e) => handleAnswerClick(question, e)}
+          onClick={(e: QuizArray) => handleAnswerClick(question, e)}
           type={type}
           options={options}
         />
       );
     }
     return (
-      options.map((option) => (
+      options.map((option: QuizArray) => (
         <SelectItem
           className={classNames(
             { [styles.active]: answer && answer?.item?.some((i:Answer) => i.id === option.id) },
@@ -58,7 +55,7 @@ function QuestionItem({ answer, question, onAnswerSelect }: QuestingProps) {
         </SelectItem>
       ))
     );
-  }, [question, options, type, id, answer]);
+  }, [type, options, id, handleAnswerClick, question, answer]);
 
   return (
     <div className={styles.question}>

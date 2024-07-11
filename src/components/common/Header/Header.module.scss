@@ -18,8 +18,11 @@
       color: #ffffff;
       padding: 0;
       &:hover {
+        cursor: pointer;
         svg {
-
+          path {
+            stroke-opacity: 0.8;
+          }
         }
       }
     }

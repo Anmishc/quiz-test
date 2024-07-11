@@ -1,13 +1,15 @@
-import { useCallback } from 'react';
+import {useCallback, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { Trans } from 'react-i18next';
+
 import styles from './ThankYouPage.module.scss';
 import { useQuiz } from '../../contexts/QuizContext.tsx';
 import { Button } from '../../components/core/Button';
 import { Download, Success } from '../../components/icons';
+import {StorageKey} from "../../constants";
 
 function ThankYouPage() {
+  const email = localStorage.getItem(StorageKey.QuizUserEmail);
   const navigate = useNavigate();
   const {
     questions,
@@ -24,7 +26,6 @@ function ThankYouPage() {
   const downloadCSV = useCallback(() => {
     let csvContent = 'data:text/csv;charset=utf-8,';
     csvContent += 'order,title,type,answer\n';
-    const email = localStorage.getItem('quizUserEmail');
 
     answers.forEach((answer, index) => {
       const question = questions[index];
@@ -42,7 +43,13 @@ function ThankYouPage() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  }, [answers, questions]);
+  }, [answers, email, questions]);
+
+  useEffect(() => {
+    if(!email) {
+      navigate('/email');
+    }
+  },[email, navigate])
 
   return (
     <div className={styles.thankYouPage}>

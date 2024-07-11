@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Trans } from 'react-i18next';
-import { ProgressProps } from '../../../types/quiz';
 
 const CircleProgressWrapper = styled.div`
   width: 100%;
@@ -10,11 +9,11 @@ const CircleProgressWrapper = styled.div`
   justify-content: center;
 `;
 
-const Circle = styled.div.attrs<ProgressProps>((props) => ({
+const Circle = styled.div.attrs<{ $progress: number }>((props) => ({
   style: {
-    background: `conic-gradient(#E4229C ${props.progress * 3.6}deg, #ffffff ${props.progress * 3.6}deg 360deg)`,
+    background: `conic-gradient(#E4229C ${props.$progress * 3.6}deg, #ffffff ${props.$progress * 3.6}deg 360deg)`,
   },
-}))`
+}))<{ $progress: number }>`
   width: 252px;
   height: 252px;
   border-radius: 50%;
@@ -59,7 +58,7 @@ interface CircleProgressProps {
 function CircleProgress({ text, progress }: CircleProgressProps) {
   return (
     <CircleProgressWrapper>
-      <Circle progress={progress}>
+      <Circle $progress={progress}>
         <InsideCircle>
           {progress.toFixed()}
           %

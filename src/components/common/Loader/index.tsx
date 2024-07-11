@@ -31,7 +31,7 @@ export function Loader() {
     return () => {
       startTime = null;
     };
-  }, []);
+  }, [navigate, setLoading]);
 
   return (
     <div className={styles.loader}>

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ProgressProps } from '../../../types/quiz';
 
 const ProgressBarWrapper = styled.div`
   width: 100%;
@@ -7,11 +6,11 @@ const ProgressBarWrapper = styled.div`
   border-radius: 4px;
 `;
 
-const ProgressFill = styled.div<ProgressProps>`
+const ProgressFill = styled.div<{ $progress: number }>`
   height: 4px;
   border-radius: 4px;
   background-color: #e4229c;
-  width: ${(props) => props.progress}%;
+  width: ${(props) => props.$progress}%;
   transition: width 0.3s ease-in-out;
 `;
 
@@ -20,12 +19,12 @@ interface ProgressBarProps {
   total: number;
 }
 
-function ProgressBar({ current, total }:ProgressBarProps) {
+function ProgressBar({ current, total }: ProgressBarProps) {
   const progress = (current / total) * 100;
 
   return (
     <ProgressBarWrapper>
-      <ProgressFill progress={progress} />
+      <ProgressFill $progress={progress} />
     </ProgressBarWrapper>
   );
 }
