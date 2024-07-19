@@ -16,7 +16,7 @@ function App() {
 
   return (
     <I18nextProvider i18n={i18n}>
-      <Router>
+      <Router basename="/quiz-test/">
         <QuizProvider>
           <Routes>
             <Route path="/" element={<Navigate to="/quiz/1" />} />
