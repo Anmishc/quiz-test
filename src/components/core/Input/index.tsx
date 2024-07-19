@@ -20,9 +20,8 @@ export function Input ({ type, value, onChange, isValid, placeholder, error, req
         type={type}
         value={value}
         onChange={onChange}
-        className={classNames({
+        className={classNames(styles.input, {
           [styles.invalid]: !isValid,
-          [styles.input]: isValid,
         })}
         placeholder={placeholder}
         required={required}
