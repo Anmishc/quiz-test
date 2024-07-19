@@ -1,3 +1,12 @@
-.header {
+.progressBarWrapper {
+  width: 100%;
+  background-color: #e8eaf2;
+  border-radius: 4px;
+}
 
+.progressFill {
+  height: 4px;
+  border-radius: 4px;
+  background-color: #e4229c;
+  transition: width 0.3s ease-in-out;
 }

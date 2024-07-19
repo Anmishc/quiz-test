@@ -32,48 +32,6 @@
     .form {
       width: 100%;
       max-width: 335px;
-      .inputBlock {
-        position: relative;
-        margin: 40px 0;
-      }
-      input {
-        background: #36173D;
-        border: 1px solid #36173D;
-        width: 100%;
-        padding: 21px 20px 21px 20px;
-        gap: 4px;
-        border-radius: 16px;
-        color: #ffffff;
-        max-width: -webkit-fill-available;
-
-        &:focus {
-          outline: none;
-          background: #492752;
-          border: 1px solid #D0006E;
-        }
-
-        &::placeholder {
-          color: #C4C8CC80;
-        }
-
-        &.invalid {
-          background: #492752;
-          border: 1px solid #D0006E;
-        }
-
-        p {
-          width: 100%;
-        }
-      }
-
-      .error {
-        position: relative;
-        color: #D0006E;
-        font-size: 12px;
-        &.hide {
-          opacity: 0;
-        }
-      }
 
       .info {
         color: #B6B8C3;

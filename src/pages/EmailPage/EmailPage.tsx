@@ -1,14 +1,14 @@
 import { useState, useEffect, ChangeEvent } from 'react';
-import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
 import useDebounce from '../../hooks/useDebounce.tsx';
 import { Button } from '../../components/core/Button';
+import { Input } from '../../components/core/Input';
 
 import styles from './EmailPage.module.scss';
-import {StorageKey} from "../../constants";
-import {localStorageService} from "../../services/common/localStorage.service.ts";
-import {questionsData} from "../../data/questions.ts";
+import { StorageKey } from "../../constants";
+import { localStorageService } from "../../services/common/localStorage.service.ts";
+import { questionsData } from "../../data/questions.ts";
 
 function EmailPage() {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ function EmailPage() {
   const [error, setError] = useState('');
 
   const validateEmail = (mail: string) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(mail);
   };
 
@@ -68,21 +68,15 @@ function EmailPage() {
           </Trans>
         </p>
         <form className={styles.form}>
-          <div className={styles.inputBlock}>
-            <input
-              type="email"
-              value={email}
-              onChange={handleChange}
-              className={!isValid ? styles.invalid : styles.input}
-              placeholder={t('emailPage.input.placeholder')}
-              required
-            />
-            <div className={classNames(styles.error, { [styles.hide]: !error })}>
-              <Trans i18nKey="emailPage.input.error">
-                {error}
-              </Trans>
-            </div>
-          </div>
+          <Input
+            type="email"
+            value={email}
+            onChange={handleChange}
+            isValid={isValid}
+            placeholder={t('emailPage.input.placeholder')}
+            error={error}
+            required
+          />
           <p className={styles.info}>
             <Trans i18nKey="emailPage.info1">
               By continuing I agree with

@@ -41,6 +41,7 @@ function QuestionItem({ answer, question, onAnswerSelect }: QuestingProps) {
           onClick={(e: Quiz[]) => handleAnswerClick(question, e)}
           type={type}
           options={options}
+          maxSelections={type === 'bubble' ? 3 : Infinity}
         />
       );
     }

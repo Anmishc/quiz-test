@@ -11,10 +11,11 @@ interface MultipleSelectProps {
   onClick: (f: Quiz[]) => void;
   options: Quiz[];
   type: string;
+  maxSelections?: number;
 }
 
 function MultipleSelect({
-  questionId, onClick, options, type,
+  questionId, onClick, options, type, maxSelections,
 }:MultipleSelectProps) {
   const { answers, currentQuestionIndex } = useQuiz();
   const [selectedOptions, setSelectedOptions] = useState<Quiz[]>([]);
@@ -25,16 +26,22 @@ function MultipleSelect({
   });
 
   const toggleOption = useCallback((option: Quiz) => {
+    const maxAllowedSelections = maxSelections ?? Infinity;
+
     if (selectedOptions.some((selectedOption) => selectedOption.id === option.id)) {
-      const updated:Quiz[] = selectedOptions.filter((selectedOption) => selectedOption.id !== option.id);
+      // Удаление опции из выбранных
+      const updated: Quiz[] = selectedOptions.filter((selectedOption) => selectedOption.id !== option.id);
       setSelectedOptions(updated);
       onClick(updated);
     } else {
-      const updated = [...selectedOptions, option];
-      setSelectedOptions(updated);
-      onClick(updated);
+      // Проверка на максимальное количество выбранных опций
+      if (selectedOptions.length < maxAllowedSelections) {
+        const updated = [...selectedOptions, option];
+        setSelectedOptions(updated);
+        onClick(updated);
+      }
     }
-  }, [onClick, setSelectedOptions, selectedOptions]);
+  }, [onClick, selectedOptions, maxSelections]);
 
   useEffect(() => {
     if (answers[currentQuestionIndex]) {
